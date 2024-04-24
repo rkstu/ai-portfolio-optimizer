@@ -1,0 +1,8 @@
+python=3.8
+pip
+streamlit
+numpy
+pandas
+scikit-learn
+cvxpy
+yfinance
