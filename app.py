@@ -25,7 +25,7 @@ def main():
         stock_prices, index_values = fetch_stock_data(tickers, start_date)
 
         # Perform optimization using cvxpy
-        optimized_weights_cvxpy = solve_quadratic_optimization_cvxpy(stock_prices.values, index_values.values)
+        # optimized_weights_cvxpy = solve_quadratic_optimization_cvxpy(stock_prices.values, index_values.values)
 
         # Perform optimization using scipy
         optimized_weights_scipy = solve_quadratic_optimization_scipy(stock_prices.values, index_values.values)
@@ -35,15 +35,15 @@ def main():
         user_returns, user_volatility, user_var = user_metrics
 
         # Calculate metrics for optimized portfolios
-        optimized_metrics_cvxpy = pm.calculate_portfolio_metrics(stock_prices, optimized_weights_cvxpy)
+        # optimized_metrics_cvxpy = pm.calculate_portfolio_metrics(stock_prices, optimized_weights_cvxpy)
         optimized_metrics_scipy = pm.calculate_portfolio_metrics(stock_prices, optimized_weights_scipy)
 
         # Display results for initial and optimized portfolios
-        pm.display_results(user_metrics, optimized_metrics_cvxpy)
+        # pm.display_results(user_metrics, optimized_metrics_cvxpy)
         pm.display_results(user_metrics, optimized_metrics_scipy)
 
         # Plot risk-return profiles for initial and optimized portfolios
-        pm.plot_risk_return_profile(user_volatility, user_returns, optimized_metrics_cvxpy[1], optimized_metrics_cvxpy[0], optimized_metrics_scipy[1], optimized_metrics_scipy[0])
+        pm.plot_risk_return_profile(user_volatility, user_returns, optimized_metrics_scipy[1], optimized_metrics_scipy[0])
 
 if __name__ == "__main__":
     main()
