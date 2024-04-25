@@ -1,2 +1,4 @@
 # Ignore Conda environment directories
 **/portfolio_optimization_env/
+/env
+__pycache__
